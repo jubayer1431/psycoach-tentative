@@ -1,0 +1,136 @@
+@import url('https://fonts.googleapis.com/css2?family=Noto+Sans+Bengali:wght@300;400;500;600;700&family=Inter:wght@300;400;500;600;700&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    /* Psycoach Bangladesh Brand Colors */
+    --sage: 162 35% 63%;
+    --coral: 8 65% 75%;
+    --teal: 178 36% 27%;
+    --cream: 30 60% 97%;
+    --charcoal: 192 10% 20%;
+    --lavender: 240 67% 94%;
+    
+    /* shadcn/ui theme mapping */
+    --background: 30 60% 97%;
+    --foreground: 192 10% 20%;
+    --card: 0 0% 100%;
+    --card-foreground: 192 10% 20%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 192 10% 20%;
+    --primary: 162 35% 63%;
+    --primary-foreground: 192 10% 20%;
+    --secondary: 8 65% 75%;
+    --secondary-foreground: 192 10% 20%;
+    --muted: 30 30% 92%;
+    --muted-foreground: 192 10% 40%;
+    --accent: 178 36% 27%;
+    --accent-foreground: 0 0% 100%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 162 20% 85%;
+    --input: 162 20% 85%;
+    --ring: 162 35% 63%;
+    --radius: 1rem;
+    --sidebar-background: 0 0% 98%;
+    --sidebar-foreground: 192 10% 20%;
+    --sidebar-primary: 162 35% 63%;
+    --sidebar-primary-foreground: 192 10% 20%;
+    --sidebar-accent: 8 65% 75%;
+    --sidebar-accent-foreground: 192 10% 20%;
+    --sidebar-border: 162 20% 85%;
+    --sidebar-ring: 162 35% 63%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    @apply bg-background text-foreground antialiased;
+    font-family: 'Noto Sans Bengali', 'Inter', system-ui, sans-serif;
+  }
+  
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Noto Sans Bengali', 'Inter', system-ui, sans-serif;
+    font-weight: 600;
+  }
+}
+
+@layer utilities {
+  .text-balance {
+    text-wrap: balance;
+  }
+  
+  .gradient-sage {
+    background: linear-gradient(135deg, hsl(var(--sage)) 0%, hsl(var(--teal)) 100%);
+  }
+  
+  .gradient-coral {
+    background: linear-gradient(135deg, hsl(var(--coral)) 0%, hsl(var(--sage)) 100%);
+  }
+  
+  .shadow-soft {
+    box-shadow: 0 4px 20px -2px rgba(44, 95, 93, 0.15);
+  }
+  
+  .shadow-card {
+    box-shadow: 0 8px 30px -4px rgba(44, 95, 93, 0.12);
+  }
+  
+  .hover-lift {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .hover-lift:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 12px 40px -8px rgba(44, 95, 93, 0.2);
+  }
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: hsl(var(--cream));
+}
+
+::-webkit-scrollbar-thumb {
+  background: hsl(var(--sage));
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: hsl(var(--teal));
+}
+
+/* Animation utilities */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse-soft {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.7; }
+}
+
+.animate-float {
+  animation: float 3s ease-in-out infinite;
+}
+
+.animate-pulse-soft {
+  animation: pulse-soft 2s ease-in-out infinite;
+}
